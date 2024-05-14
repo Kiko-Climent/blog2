@@ -67,7 +67,7 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-CKEDITOR_UPLOAD_PATH = "/media/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
