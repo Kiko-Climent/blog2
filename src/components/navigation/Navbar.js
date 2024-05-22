@@ -79,12 +79,12 @@ function Navbar(){
                     />
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0">
-                    <NavLink to='/cases' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Cases</NavLink>
-                    <NavLink to='/services' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Services</NavLink>
-                    <NavLink to='/about' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">About Us</NavLink>
-                    <NavLink to='/careers' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Careers</NavLink>
-                    <NavLink to='/blog' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Blog</NavLink>
-                    <NavLink to='/contact' className="text-lg inline-flex font-medium leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Contact</NavLink>
+                    <NavLink to='/cases' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Cases</NavLink>
+                    <NavLink to='/services' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Services</NavLink>
+                    <NavLink to='/about' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">About Us</NavLink>
+                    <NavLink to='/careers' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Careers</NavLink>
+                    <NavLink to='/blog' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Blog</NavLink>
+                    <NavLink to='/contact' className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-indigo-button transition duration-300 ease-in-out mx-4">Contact</NavLink>
                     
                     <Link
                         to="/contacto"
@@ -95,7 +95,7 @@ function Navbar(){
                     </Link>
                     </div>
                 </div>
-                <div className="-ml-4 -mt-2 lg:hidden flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
+                <div className="-ml-4 -mt-2 lg:hidden flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
                     <Link to='/' className="ml-4 mt-2">
                     <img
                         src={logo_boomslag}

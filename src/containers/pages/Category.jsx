@@ -6,31 +6,35 @@ import { useEffect } from "react"
 import { Helmet } from 'react-helmet-async'
 import { get_categories } from "../../redux/actions/categories/categories"
 import { connect } from "react-redux"
-import { get_blog_list, get_blog_list_page } from "../../redux/actions/blog/blog"
-import BlogList from "../../components/blog/BlogList"
+import { get_blog_list_category, get_blog_list_category_page } from "../../redux/actions/blog/blog"
+import { useParams } from "react-router-dom"
+import BlogList from "../../components/home/BlogList"
 
 
-function Blog({
+function Category({
     get_categories,
     categories,
-    get_blog_list,
-    get_blog_list_page,
+    get_blog_list_category,
+    get_blog_list_category_page,
     posts,
     count,
     next,
     previous,
 }){
 
+    const params = useParams()
+    const slug = params.slug
+
     useEffect(() => {
         window.scrollTo(0,0)
         get_categories()
-        get_blog_list()
+        get_blog_list_category(slug)
     },[])
 
     return(
         <Layout>
             <Helmet>
-            <title>Boomslag | Blog</title>
+            <title>Boomslag | Category: {slug}</title>
             <meta name="description" content="Sofware development agency and digital marketing solutions."/>
             <meta name="keywors" content="sofware agency, marketing agency, web development"/>
             <meta name="robots" content="all"/>
@@ -55,7 +59,6 @@ function Blog({
             <Navbar/>
             <div className="pt-28">
                 <CategoriesHeader categories={categories&&categories}/>
-                <BlogList posts={posts&&posts}/>
             </div>
                 <Footer/>
         </Layout>
@@ -63,14 +66,14 @@ function Blog({
 }
 const mapStateToProps=state=>({
     categories: state.categories.categories,
-    posts: state.blog.blog_list,
+    posts: state.blog.blog_list_category,
     count: state.blog.count,
     next: state.blog.next,
     previous: state.blog.previous,
 })
 export default connect(mapStateToProps,{
     get_categories,
-    get_blog_list,
-    get_blog_list_page,
-}) (Blog)
+    get_blog_list_category,
+    get_blog_list_category_page,
+}) (Category)
 

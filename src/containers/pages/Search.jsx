@@ -6,26 +6,30 @@ import { useEffect } from "react"
 import { Helmet } from 'react-helmet-async'
 import { get_categories } from "../../redux/actions/categories/categories"
 import { connect } from "react-redux"
-import { get_blog_list, get_blog_list_page } from "../../redux/actions/blog/blog"
-import BlogList from "../../components/blog/BlogList"
+import { get_blog_list, get_blog_list_page, search_blog, search_blog_page } from "../../redux/actions/blog/blog"
+import { useParams } from "react-router-dom"
 
 
-function Blog({
-    get_categories,
-    categories,
-    get_blog_list,
-    get_blog_list_page,
+function Search({
     posts,
     count,
     next,
     previous,
+    search_blog
 }){
 
+    const params = useParams()
+    const term = params.term
+
     useEffect(() => {
+        console.log("Search component mounted");
+        console.log("Search term:", term);
+
         window.scrollTo(0,0)
-        get_categories()
-        get_blog_list()
-    },[])
+        search_blog(term)
+    },[term])
+
+    console.log("Rendering Search component");
 
     return(
         <Layout>
@@ -54,23 +58,18 @@ function Blog({
             </Helmet>
             <Navbar/>
             <div className="pt-28">
-                <CategoriesHeader categories={categories&&categories}/>
-                <BlogList posts={posts&&posts}/>
+                SEARCH POSTS
             </div>
                 <Footer/>
         </Layout>
     )
 }
 const mapStateToProps=state=>({
-    categories: state.categories.categories,
-    posts: state.blog.blog_list,
+    posts: state.blog.filtered_posts,
     count: state.blog.count,
     next: state.blog.next,
     previous: state.blog.previous,
 })
 export default connect(mapStateToProps,{
-    get_categories,
-    get_blog_list,
-    get_blog_list_page,
-}) (Blog)
-
+    search_blog
+}) (Search)
